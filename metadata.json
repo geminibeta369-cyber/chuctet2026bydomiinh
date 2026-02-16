@@ -1,0 +1,5 @@
+{
+  "name": "Tet Celebration & AI Wish Generator",
+  "description": "A festive Vietnamese New Year application with interactive red envelopes, AI-powered wish generation using Gemini, and a customizable greeting card downloader.",
+  "requestFramePermissions": []
+}
