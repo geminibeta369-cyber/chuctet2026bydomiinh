@@ -65,12 +65,12 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
 
       const canvas = await html2canvas(element, {
         backgroundColor: '#fffdf0',
-        scale: 3, // Giảm xuống 3 để cân bằng độ nét và dung lượng
+        scale: 3, 
         useCORS: true,
         logging: false,
         allowTaint: true,
-        scrollY: -window.scrollY, // Quan trọng để không bị lệch tọa độ khi trang đang cuộn
-        windowHeight: element.scrollHeight // Chụp toàn bộ chiều cao thực tế
+        scrollY: -window.scrollY,
+        windowHeight: element.scrollHeight 
       });
       
       const link = document.createElement('a');
@@ -93,7 +93,6 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg transition-opacity overflow-y-auto">
-      {/* Container bọc ngoài để modal có thể cuộn nếu quá dài trên mobile */}
       <div className="min-h-full py-8 flex items-center justify-center w-full">
         <div 
           ref={cardRef}
@@ -106,17 +105,16 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
           <button 
             onClick={onClose}
             className="no-capture absolute top-4 right-4 text-red-700 hover:text-red-500 text-3xl font-bold leading-none z-20"
+            title="Đóng"
           >
             &times;
           </button>
 
-          {/* Trang trí phía trên */}
           <div className="flex justify-between w-full mb-4 px-2 opacity-40 select-none pointer-events-none">
             <span className="text-red-600 text-xl">🌸</span>
             <span className="text-red-600 text-xl">🌸</span>
           </div>
 
-          {/* Năm Bính Ngọ 2026 */}
           <div className="bg-red-600 text-yellow-300 px-6 py-1.5 rounded-full text-sm font-bold tracking-[0.2em] mb-6 shadow-md border-2 border-yellow-500/50">
             XUÂN BÍNH NGỌ 2026
           </div>
@@ -139,7 +137,6 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
             {title}
           </h1>
 
-          {/* Ảnh kỷ niệm */}
           {userImage && (
             <div className="relative mb-6 group w-full px-2">
               <div className="p-2 bg-white shadow-lg rounded-xl border border-gray-100 rotate-1 overflow-hidden">
@@ -178,7 +175,6 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
             </div>
           </div>
 
-          {/* Điều khiển - Không được chụp */}
           <div className="no-capture mt-10 flex flex-col gap-6 w-full border-t border-red-100 pt-8">
             <div className="flex flex-wrap justify-center gap-2">
               {THEMES.map((t) => (
@@ -213,6 +209,15 @@ const WishModal: React.FC<WishModalProps> = ({ isOpen, onClose, initialWish }) =
                 💾 Tải Thiệp
               </button>
             </div>
+
+            {/* Nút Trở Về mới */}
+            <button 
+              onClick={onClose}
+              className="mt-2 w-full py-3 border-2 border-red-600 text-red-600 rounded-2xl font-bold hover:bg-red-50 transition-colors flex items-center justify-center gap-2 text-sm"
+            >
+              ← Quay lại trang chính
+            </button>
+
             <p className="text-[10px] text-gray-400 font-medium italic">
               💡 Chạm vào tiêu đề hoặc lời chúc để tự chỉnh sửa theo ý muốn!
             </p>
